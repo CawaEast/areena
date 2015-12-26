@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.example.ilnarsabirzyanov.areena.MainActivity.Difficulty;
 import com.example.ilnarsabirzyanov.areena.game.GameBoard;
 import com.example.ilnarsabirzyanov.areena.game.GameUtils;
 
@@ -16,6 +17,7 @@ public class GameView extends View {
     boolean NEEDTOSETCOORD = true;
     boolean pause = false;
     int time = 0;
+    Difficulty difficulty = Difficulty.EASY;
     GameBoard game;
 
     public GameView(Context context, AttributeSet attributes) {
@@ -40,7 +42,7 @@ public class GameView extends View {
         if (NEEDTOSETCOORD) {
             game.setCoord(getWidth(), getHeight());
             NEEDTOSETCOORD = false;
-            game.setDifficulty(1);
+            game.setDifficulty(difficulty.ordinal() + 1);
         }
         if (!pause) {
             time++;
