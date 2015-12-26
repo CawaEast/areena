@@ -6,13 +6,14 @@ import android.graphics.Paint;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.example.cawa.compas.GameView;
+import com.example.ilnarsabirzyanov.areena.GameView;
 
 /**
  * Created by Cawa on 22.12.2015.
  */
 public class GameUtils {
-    public static double EPS = 0.0000001;
+    public static double EPS = 0.000001;
+    public static double FPS = 60;
     public static double w = 0;
     public static void drawTrace(Canvas canvas, Trace trace) {
         Paint paint =  new Paint();
@@ -30,6 +31,14 @@ public class GameUtils {
         paint.setStrokeWidth(1);
         canvas.drawCircle((float) ball.c.x, (float) ball.c.y, (float) ball.r, paint);
     }
+
+    public static void drawCBall(Canvas canvas, CBall ball) {
+        Paint paint = new Paint();
+        paint.setColor(Color.GREEN);
+        paint.setStrokeWidth(1);
+        canvas.drawCircle((float) ball.c.x, (float) ball.c.y, (float) ball.r, paint);
+    }
+
 
     public static void setListener(final GameView listener) {
         listener.setOnTouchListener(new View.OnTouchListener() {
@@ -104,6 +113,10 @@ public class GameUtils {
             ball.v = ball.v.mul(ball.speed/Math.sqrt(ball.v.mod2()));
         }
         return ball;
+    }
+
+    public static double distP(Point a, Point b) {
+        return Math.sqrt(a.sub(b).mod2());
     }
 
     public static double getTme(Point a, Point b, Point c, Point d, double rad) {

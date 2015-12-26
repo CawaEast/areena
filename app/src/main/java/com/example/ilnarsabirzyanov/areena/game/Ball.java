@@ -6,6 +6,7 @@ import android.graphics.Canvas;
  * Created by Cawa on 22.12.2015.
  */
 public class Ball {
+
     public Point c, v, e, a;
     public double r, speed, acs;
     Ball(double xx, double yy, double rr) {
