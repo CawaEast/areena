@@ -170,8 +170,8 @@ public class GameBoard {
             }
             for (int k = 0; k < traces.size(); k++) {
                 Trace trace = traces.get(k);
-                p3 = trace.points.get(0).point;
                 if (trace.points.size() >= 2) {
+                    p3 = trace.points.get(0).point;
                     for (int i = 1; i < trace.points.size(); i++) {
                         p4 = trace.points.get(i).point;
                         double tmp = GameUtils.getTme(p1, p2, p3, p4, ball.r + GameUtils.w);
